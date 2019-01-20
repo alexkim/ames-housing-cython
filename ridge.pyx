@@ -6,8 +6,9 @@ Python 3.7
 This module defines a ridge regression algorithm that uses stochastic
 gradient descent.
 """
+import numpy as np
 
-def getLossGradient():
+def get_loss_gradient():
     """Computes the numerical gradient of the ridge loss function with
     respect to the feature weight vector.
 
@@ -15,9 +16,18 @@ def getLossGradient():
         features (dict)
 
     Returns:
-        A sparse vector (dict) representing the gradient vector.
+        A NumPy vector representing the gradient of the loss function.
     """
+    loss_gradient = np.zeros()
+    pass
 
-def trainModel(data, num_iters, step_size, lam):
+def train_model(train_data, num_iters, step_size, lam):
     """Trains linear regression model.
+
+    Returns:
+        A NumPy vector representing the regression weights.
     """
+    pass
+
+def test_model(test_data):
+    pass
