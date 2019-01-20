@@ -7,3 +7,10 @@ A Cython implementation of cross-validated ridge regression on the Ames Housing 
  * Experiment with sparse data structures
  * Implement cross-validation on a given set of hyperparameters
  * Implement gradient boosting
+
+
+## Setup
+
+ 1. `mkdir data/`
+ 2. Save `train.csv` to `data/`
+ 3. `python data_cleaning.csv`
