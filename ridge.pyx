@@ -29,9 +29,6 @@ def get_loss_gradient(example, weights, lam):
     l2_gradient = lam * weights
     loss_gradient = rss_gradient + l2_gradient
 
-    # TODO: remove
-    print((np.dot(feature_vector, weights) - response_value) ** 2)
-
     return loss_gradient
 
 
@@ -52,10 +49,18 @@ def train(train_data, num_epochs, step_size, lam):
     weights = np.zeros(num_features)
 
     for epoch in range(num_epochs):
+        sq_errors = []
         for i in range(num_examples):
             example = train_data[i]
             loss_gradient = get_loss_gradient(example, weights, lam)
             weights = weights - (step_size * loss_gradient)
+
+            feature_vector = np.delete(example, -1, 0)
+            response_value = example[-1]
+            sq_errors.append((np.dot(weights, feature_vector) - response_value) ** 2)
+        mean_sq_error = sum(sq_errors) / num_examples
+        print(mean_sq_error)
+
     return weights
 
 
