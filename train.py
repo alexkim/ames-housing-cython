@@ -19,4 +19,4 @@ if __name__ == "__main__":
             skip_header=1)    
     data = np.delete(data, 0, 1)  # Delete ID column
 
-    ridge.train(data, 1, 0.1, 0)
+    ridge.train(data, num_epochs=500, step_size=0.000000000001, lam=0.01)

@@ -11,6 +11,7 @@ import argparse
 def clean(csv_path):
     # Load DataFrame from CSV path
     data = pd.read_csv(csv_path)
+    data = data.fillna(0)
 
    # Convert categorical variables to binary "dummy" variables
     data = pd.get_dummies(data, dummy_na=True)

@@ -24,17 +24,13 @@ def get_loss_gradient(example, weights, lam):
     feature_vector = np.delete(example, -1, 0)
     response_value = example[-1]
 
-    # TODO: delete
-    print(response_value)
-
     rss_gradient = 2 * (np.dot(feature_vector, weights) - response_value) \
                    * feature_vector
     l2_gradient = lam * weights
     loss_gradient = rss_gradient + l2_gradient
 
     # TODO: remove
-    #print("Response: ", response_value)
-    # print((np.dot(feature_vector, weights) - response_value)^2)
+    print((np.dot(feature_vector, weights) - response_value) ** 2)
 
     return loss_gradient
 
