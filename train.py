@@ -19,4 +19,6 @@ if __name__ == "__main__":
             skip_header=1)    
     data = np.delete(data, 0, 1)  # Delete ID column
 
-    ridge.train(data, num_epochs=500, step_size=0.000000000001, lam=0.01)
+    weights = ridge.train(data, num_epochs=200, step_size=0.00000000001,
+            lam=0.01)
+    ridge.test(data, weights)

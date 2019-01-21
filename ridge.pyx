@@ -71,4 +71,9 @@ def test(test_data, weights):
         The mean squared error (double) of the predictions on the given
         test dataset.
     """
-    pass
+    inputs = np.delete(test_data, -1, 1)
+    outputs = test_data[:, -1]
+
+    predictions = np.dot(inputs, weights)
+    mean_sq_error = np.sum((predictions - outputs) ** 2) / inputs.shape[0]
+    print(mean_sq_error)
